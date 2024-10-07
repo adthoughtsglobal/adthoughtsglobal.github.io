@@ -246,8 +246,7 @@ nav a:hover {
 }
 
 .whyres:hover .material-icons {
-    text-shadow: 0 0 1.5rem #ffac2882;
-	transform: translateY(-0.5rem) scale(1.2);
+	transform: translateY(-0.5rem);
 }
 
 .whyres p {
