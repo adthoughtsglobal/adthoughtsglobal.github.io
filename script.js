@@ -91,3 +91,17 @@ const motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (motionMediaQuery.matches) {
   pauseplayanims();
 }
+
+const carouselTrack = document.getElementById("carouselTrack");
+
+function scrollCarouselLeft() {
+  if (carouselTrack) {
+    carouselTrack.scrollBy({ left: -carouselTrack.clientWidth, behavior: 'smooth' });
+  }
+}
+
+function scrollCarouselRight() {
+  if (carouselTrack) {
+    carouselTrack.scrollBy({ left: carouselTrack.clientWidth, behavior: 'smooth' });
+  }
+}
