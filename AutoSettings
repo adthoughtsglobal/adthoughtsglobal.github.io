@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Quiz</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffcc00;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ffffff;
+            background-color: #333333;
+            display: none;
+        }
+        button {
+            background-color: #ffcc00;
+            color: #000000;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #e6b800;
+        }
+        .icon {
+            font-size: 40px;
+        }
+        .question div {
+            margin-bottom: 10px;
+        }
+        .icon-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        /* Existing CSS styles */
+        /* Additional styles for the question container */
+        .question-container {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .question-container.active {
+            display: block;
+        }
+        /* Improved input styles */
+        .question label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .question input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffcc00;
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+        }
+        .question input[type="radio"]:checked::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lets find out</h1>
+    <p>Quick interactive quiz for deciding your NovaOS settings.
+    <div id="quiz-form">
+        <!-- Pick a color -->
+        <div class="question-container active">
+            <div class="question">
+                <h3>Pick a color</h3>
+                <div class="icon-container">
+                    <label>
+                        <input type="radio" name="color" value="b" required>
+                        <span class="icon material-icons" style="color: yellow;">grade</span>
+                        Yellow
+                    </label>
+                    <label>
+                        <input type="radio" name="color" value="s">
+                        <span class="icon material-icons" style="color: blue;">invert_colors</span>
+                        Blue
+                    </label>
+                </div>
+            </div>
+            <button type="button" onclick="showNextQuestion()">Next</button>
+        </div>
+
+        <!-- Pick a picture -->
+        <div class="question-container">
+            <div class="question">
+                <h3>Pick a picture</h3>
+                <div class="icon-container">
+                    <label>
+                        <input type="radio" name="picture" value="s">
+                        <span class="icon material-icons" style="color: darkgray;">nights_stay</span>
+                        Moon
+                    </label>
+                    <label>
+                        <input type="radio" name="picture" value="b" required>
+                        <span class="icon material-icons" style="color: yellow;">wb_sunny</span>
+                        Sun
+                    </label>
+                </div>
+            </div>
+            <button type="button" onclick="showNextQuestion()">Next</button>
+        </div>
+
+        <!-- Pick a shape -->
+        <div class="question-container">
+            <div class="question">
+                <h3>Pick a shape</h3>
+                <div class="icon-container">
+                    <label>
+                        <input type="radio" name="shape" value="s" required>
+                        <span class="icon material-icons" style="color: white;">change_history</span>
+                        Triangle
+                    </label>
+                    <label>
+                        <input type="radio" name="shape" value="b">
+                        <span class="icon material-icons" style="color: white;">circle</span>
+                        Circle
+                    </label>
+                </div>
+            </div>
+            <button type="button" onclick="calculateResults()">Submit</button>
+        </div>
+    </div>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        let currentQuestion = 0;
+        const questionContainers = document.querySelectorAll('.question-container');
+
+        function showNextQuestion() {
+            questionContainers[currentQuestion].classList.remove('active');
+            currentQuestion++;
+            if (currentQuestion < questionContainers.length) {
+                questionContainers[currentQuestion].classList.add('active');
+            }
+        }
+
+        function calculateResults() {
+            // Get selected values
+            const color = document.querySelector('input[name="color"]:checked').value;
+            const picture = document.querySelector('input[name="picture"]:checked').value;
+            const shape = document.querySelector('input[name="shape"]:checked').value;
+
+           let bPoints = 0;
+let sPoints = 0;
+
+if (color === 'b') bPoints += 7; else sPoints += 7;
+if (picture === 'b') bPoints += 10; else sPoints += 10;
+if (shape === 'b') bPoints += 3; else sPoints += 3;
+
+const dominant = bPoints > sPoints ? "Beauty (b)" : "Stability (s)";
+const mode = (dominant === "Beauty (b)" ? "Regular Mode" : "Simple Mode");
+const brightness = picture === 'b' ? "Bright Mode" : "Dark Mode";
+
+// Calculate the confidence percentage based on points difference
+const confidence = Math.min(Math.abs(bPoints - sPoints) / 20 * 100, 100);
+
+// Display results
+const resultDiv = document.getElementById('result');
+resultDiv.style.display = "block";
+resultDiv.innerHTML = `
+    <h3>Your Results:</h3>
+    <p><strong>Mode:</strong> ${mode}</p>
+    <p><strong>Brightness Preference:</strong> ${brightness}</p>
+    <p><strong>Confidence:</strong> ${confidence}% sure</p>
+`;
+        }
+    </script>
+</body>
+</html>
