@@ -286,43 +286,43 @@ html {
 	opacity: 1;
   }
 
-  .carousel {
+.carousel {
 	display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 10%;
-    width: calc(77%);
-  }
-
-  .carousel h2 {
-    font-size: 2rem;
-    font-weight: lighter;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 10%;
+	width: 77%;
 }
 
-  .carousel-track {
+.carousel h2 {
+	font-size: 2rem;
+	font-weight: lighter;
+}
+
+.carousel-track {
 	display: flex;
 	scroll-behavior: smooth;
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	-webkit-overflow-scrolling: touch;
 	width: 100%;
-  }
+}
 
-  .carousel-item {
+.carousel-item {
 	scroll-snap-align: center;
-    width: 100%;
+	width: 50%;
 	box-sizing: border-box;
 	padding: 1rem;
-  }
+}
 
-  .item-content {
+.item-content {
 	background-color: transparent;
 	border-radius: 10px;
 	padding: 1rem;
 	color: black;
-  }
+}
 
   button.prev, button.next {
 	position: absolute;
