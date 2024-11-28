@@ -13,12 +13,12 @@ function animateText(element, text) {
 
 var madefor = [
   "Developers",
-  "Creators",
+  "Fun",
   "Ease of use",
   "Efficiency",
-  "the Web",
+  "Making history",
   "You",
-  "Designers"
+  "Creativity"
 ];
 
 setInterval(function() {
