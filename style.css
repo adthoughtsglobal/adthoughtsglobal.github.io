@@ -297,8 +297,10 @@ html {
 }
 
 .carousel h2 {
-	font-size: 2rem;
-	font-weight: lighter;
+	    font-size: 2rem;
+    font-weight: lighter;
+    height: 16rem;
+    overflow-x: auto;
 }
 
 .carousel-track {
