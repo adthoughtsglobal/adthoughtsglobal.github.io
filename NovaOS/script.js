@@ -15,3 +15,35 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', handleScroll);
   });
   
+  const scrollable = document.querySelector('.scrollerbox');
+
+let isDown = false;
+let startX, startY, scrollLeft, scrollTop;
+
+scrollable.addEventListener('mousedown', (e) => {
+  isDown = true;
+  scrollable.classList.add('active');
+  startX = e.pageX - scrollable.offsetLeft;
+  startY = e.pageY - scrollable.offsetTop;
+  scrollLeft = scrollable.scrollLeft;
+  scrollTop = scrollable.scrollTop;
+});
+
+scrollable.addEventListener('mouseleave', () => {
+  isDown = false;
+});
+
+scrollable.addEventListener('mouseup', () => {
+  isDown = false;
+});
+
+scrollable.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - scrollable.offsetLeft;
+  const y = e.pageY - scrollable.offsetTop;
+  const walkX = (x - startX) * 1;
+  const walkY = (y - startY) * 1;
+  scrollable.scrollLeft = scrollLeft - walkX;
+  scrollable.scrollTop = scrollTop - walkY;
+});
