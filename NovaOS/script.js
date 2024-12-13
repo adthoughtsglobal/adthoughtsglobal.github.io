@@ -54,7 +54,7 @@ let isDown2 = false;
 let startX2, startY2, scrollLeft2, scrollTop2;
 
 scrollable2.addEventListener('mousedown', (e) => {
-  isDown = true;
+  isDown2 = true;
   scrollable.classList.add('active');
   startX = e.pageX - scrollable.offsetLeft;
   startY = e.pageY - scrollable.offsetTop;
@@ -63,15 +63,15 @@ scrollable2.addEventListener('mousedown', (e) => {
 });
 
 scrollable2.addEventListener('mouseleave', () => {
-  isDown = false;
+  isDown2 = false;
 });
 
 scrollable2.addEventListener('mouseup', () => {
-  isDown = false;
+  isDown2 = false;
 });
 
 scrollable2.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
+  if (!isDown2) return;
   e.preventDefault();
   const x = e.pageX - scrollable2.offsetLeft;
   const y = e.pageY - scrollable2.offsetTop;
