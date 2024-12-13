@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', handleScroll);
   });
   
-  const scrollable = document.querySelector('.scrollerbox');
+  const scrollable = document.getElementsByClassName('scrollerbox')[0];
 
 let isDown = false;
 let startX, startY, scrollLeft, scrollTop;
@@ -46,4 +46,37 @@ scrollable.addEventListener('mousemove', (e) => {
   const walkY = (y - startY) * 1;
   scrollable.scrollLeft = scrollLeft - walkX;
   scrollable.scrollTop = scrollTop - walkY;
+});
+
+const scrollable2 = document.getElementsByClassName('scrollerbox')[1];
+
+let isDown2 = false;
+let startX2, startY2, scrollLeft2, scrollTop2;
+
+scrollable2.addEventListener('mousedown', (e) => {
+  isDown = true;
+  scrollable.classList.add('active');
+  startX = e.pageX - scrollable.offsetLeft;
+  startY = e.pageY - scrollable.offsetTop;
+  scrollLeft = scrollable.scrollLeft;
+  scrollTop = scrollable.scrollTop;
+});
+
+scrollable2.addEventListener('mouseleave', () => {
+  isDown = false;
+});
+
+scrollable2.addEventListener('mouseup', () => {
+  isDown = false;
+});
+
+scrollable2.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - scrollable2.offsetLeft;
+  const y = e.pageY - scrollable2.offsetTop;
+  const walkX2 = (x - startX2) * 1;
+  const walkY2 = (y - startY2) * 1;
+  scrollable2.scrollLeft = scrollLeft2 - walkX2;
+  scrollable2.scrollTop = scrollTop2 - walkY2;
 });
