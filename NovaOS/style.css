@@ -154,9 +154,6 @@ nav a:hover {
 	margin-bottom: 10px;
 	transform: rotate3d(0.3, 0, 0.2, 10deg);
 	box-shadow: 0 98px 70px -31px black;
-}
-
-img {
 	animation: boom 3s;
 }
 
@@ -202,7 +199,7 @@ img {
 
 .box {
 	opacity: 0;
-	transition: 1s ease;
+	transition: .5s ease;
 	transform: translateY(1rem);
 	filter: blur(5px);
 }
@@ -450,3 +447,14 @@ h2 {
 	display: flex;
 	flex-direction: column;
   }
+
+  .centered {
+	justify-content: center;
+    padding: 2rem 0;
+  }
+
+  iframe.ytframe {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 5px 1rem black;
+}

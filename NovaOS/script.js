@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const screenPosition = window.innerHeight / 1.3;
 
     if (boxPosition < screenPosition) {
-      box.classList.add('triggered'); // Add a class to trigger the animation
+      box.classList.add('triggered');
     } else {
-      box.classList.remove('triggered'); // Remove the class if element is not in view
+      box.classList.remove('triggered');
     }
   }
 
