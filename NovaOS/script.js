@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 const scrollable1 = document.getElementsByClassName('scrollerbox')[0];
 const scrollable2 = document.getElementsByClassName('scrollerbox')[1];
 
-// Scrollable 1 Variables
 let isDown1 = false;
 let startX1, startY1, scrollLeft1, scrollTop1;
 
@@ -52,7 +51,6 @@ scrollable1.addEventListener('mousemove', (e) => {
   scrollable1.scrollTop = scrollTop1 - walkY1;
 });
 
-// Scrollable 2 Variables
 let isDown2 = false;
 let startX2, startY2, scrollLeft2, scrollTop2;
 
@@ -80,10 +78,44 @@ scrollable2.addEventListener('mousemove', (e) => {
   e.preventDefault();
   const x = e.pageX - scrollable2.offsetLeft;
   const y = e.pageY - scrollable2.offsetTop;
-  const walkX2 = (x - startX2) * 2; // Adjust multiplier for speed if needed
+  const walkX2 = (x - startX2) * 2;
   const walkY2 = (y - startY2) * 2;
   scrollable2.scrollLeft = scrollLeft2 - walkX2;
   scrollable2.scrollTop = scrollTop2 - walkY2;
 });
 
 document.querySelector("#yearupdate").innerText = "©" + (new Date()).getFullYear();
+
+window.addEventListener('scroll', () => {
+  const body44 = document.querySelectorAll(".bgimg")[0];
+  if (window.scrollY > 50) {
+    body44.classList.add('scrolled');
+  } else {
+    body44.classList.remove('scrolled');
+    body44.style.opacity = '0';
+    body44.src = "https://images.unsplash.com/photo-1712111474888-29e9431241b6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    body44.style.opacity = '1';
+  }
+});
+
+document.querySelectorAll('.ban').forEach(banElement => {
+  banElement.addEventListener('mouseover', function () {
+      const bgImage = window.getComputedStyle(this).backgroundImage;
+      const urlMatch = bgImage.match(/url\(["']?(.+?)["']?\)/);
+
+      if (urlMatch && urlMatch[1]) {
+          const newImageUrl = urlMatch[1];
+          const bgimg = document.querySelector('.bgimg');
+
+          if (bgimg.src !== newImageUrl) {
+              bgimg.style.opacity = '0';
+
+              setTimeout(() => {
+                  bgimg.src = newImageUrl;
+
+                  bgimg.style.opacity = '.5';
+              }, 500);
+          }
+      }
+  });
+});
