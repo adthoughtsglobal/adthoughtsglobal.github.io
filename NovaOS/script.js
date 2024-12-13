@@ -88,10 +88,13 @@ document.querySelector("#yearupdate").innerText = "©" + (new Date()).getFullYea
 
 window.addEventListener('scroll', () => {
   const body44 = document.querySelectorAll(".bgimg")[0];
+  const launchbtn = document.querySelector("#altlaunchbtn");
   if (window.scrollY > 150) {
     body44.classList.add('scrolled');
+    launchbtn.classList.add('doit');
   } else {
     body44.classList.remove('scrolled');
+    launchbtn.classList.remove('doit');
     if (body44.src !== "https://images.unsplash.com/photo-1712111474888-29e9431241b6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") {
       body44.style.opacity = '0';
 

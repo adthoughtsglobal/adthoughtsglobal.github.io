@@ -38,15 +38,15 @@ body {
 	background-repeat: no-repeat;
 	position: fixed;
 	z-index: -1;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    right: 0;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	right: 0;
 }
 
 .scrolled.bgimg {
 	filter: blur(2rem);
-  }
+}
 
 a {
 	color: inherit;
@@ -55,16 +55,15 @@ a {
 
 .footer {
 	background-color: #1f1f1fdb;
-    backdrop-filter: blur(10px);
-    color: white;
-    padding: 1rem;
-    padding-bottom: 1rem;
-    margin-top: 10px;
-    border-radius: 10px;
-    display: flex
-;
-    flex-direction: row;
-    justify-content: space-between;
+	backdrop-filter: blur(10px);
+	color: white;
+	padding: 1rem;
+	padding-bottom: 1rem;
+	margin-top: 10px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .footer a {
@@ -102,6 +101,14 @@ nav {
 .navcontent {
 	max-width: 900px;
 	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.linksnv {
+	display: flex;
+	align-items: center;
 }
 
 nav img {
@@ -282,17 +289,16 @@ nav a:hover {
 
 .whyres {
 	width: 250px;
-    background: #0e0e0e;
-    border-radius: 10px;
-    white-space: break-spaces;
-    cursor: e-resize;
-    padding: 1rem 2rem;
-    margin: 5px;
-    display: flex
-;
-    transition: .2s;
-    flex-direction: column;
-    align-items: flex-start;
+	background: #0e0e0e;
+	border-radius: 10px;
+	white-space: break-spaces;
+	cursor: e-resize;
+	padding: 1rem 2rem;
+	margin: 5px;
+	display: flex;
+	transition: .2s;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .whyres:hover {
@@ -396,8 +402,8 @@ nav a:hover {
 	color: white;
 	display: flex;
 	flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
+	justify-content: space-between;
+	flex: 1;
 }
 
 button.prev,
@@ -418,10 +424,9 @@ h2 {
 }
 
 .right {
-    display: flex
-;
-    flex-direction: column;
-    align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 }
 
 .right a {
@@ -433,41 +438,48 @@ h2 {
 	flex-direction: row;
 	justify-content: center;
 	margin-top: 0.3rem;
-  }
-  
-  .footer .centeredlogo {
+}
+
+.footer .centeredlogo {
 	display: block;
 	margin: 1rem;
 	text-align: center;
 	font-size: 1.5rem;
-  }
-  
-  .footer .socials i {
+}
+
+.footer .socials i {
 	font-size: 1.5rem;
 	margin-right: 0.5rem;
 	opacity: 0.5;
-  }
-  
-  .footer .socials i:hover {
+}
+
+.footer .socials i:hover {
 	opacity: 1;
-  }
+}
 
-  .footericn {
+.footericn {
 	font-size: 2rem;
-  }
+}
 
-  .links {
+.links {
 	display: flex;
 	flex-direction: column;
-  }
+}
 
-  .centered {
+.centered {
 	justify-content: center;
-    padding: 2rem 0;
-  }
+	padding: 2rem 0;
+}
 
-  iframe.ytframe {
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 5px 1rem black;
+iframe.ytframe {
+	border-radius: 1rem;
+	overflow: hidden;
+	box-shadow: 0 5px 1rem black;
+}
+
+.doit {
+	background: #6a81ff;
+	padding: 0.3rem 1rem;
+	border-radius: 1rem;
+	opacity: 1;
 }
