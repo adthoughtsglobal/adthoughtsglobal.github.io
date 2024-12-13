@@ -88,34 +88,39 @@ document.querySelector("#yearupdate").innerText = "©" + (new Date()).getFullYea
 
 window.addEventListener('scroll', () => {
   const body44 = document.querySelectorAll(".bgimg")[0];
-  if (window.scrollY > 50) {
+  if (window.scrollY > 150) {
     body44.classList.add('scrolled');
   } else {
     body44.classList.remove('scrolled');
-    body44.style.opacity = '0';
-    body44.src = "https://images.unsplash.com/photo-1712111474888-29e9431241b6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    body44.style.opacity = '1';
+    if (body44.src !== "https://images.unsplash.com/photo-1712111474888-29e9431241b6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") {
+      body44.style.opacity = '0';
+
+      setTimeout(() => {
+        body44.src = "https://images.unsplash.com/photo-1712111474888-29e9431241b6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        body44.style.opacity = '1';
+      }, 500);
+    }
   }
 });
 
 document.querySelectorAll('.ban').forEach(banElement => {
   banElement.addEventListener('mouseover', function () {
-      const bgImage = window.getComputedStyle(this).backgroundImage;
-      const urlMatch = bgImage.match(/url\(["']?(.+?)["']?\)/);
+    const bgImage = window.getComputedStyle(this).backgroundImage;
+    const urlMatch = bgImage.match(/url\(["']?(.+?)["']?\)/);
 
-      if (urlMatch && urlMatch[1]) {
-          const newImageUrl = urlMatch[1];
-          const bgimg = document.querySelector('.bgimg');
+    if (urlMatch && urlMatch[1]) {
+      const newImageUrl = urlMatch[1];
+      const bgimg = document.querySelector('.bgimg');
 
-          if (bgimg.src !== newImageUrl) {
-              bgimg.style.opacity = '0';
+      if (bgimg.src !== newImageUrl && newImageUrl != "https://images.unsplash.com/photo-1730632694635-562d4356fd8d?q=80&w=1867&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") {
+        bgimg.style.opacity = '0';
 
-              setTimeout(() => {
-                  bgimg.src = newImageUrl;
+        setTimeout(() => {
+          bgimg.src = newImageUrl;
 
-                  bgimg.style.opacity = '.5';
-              }, 500);
-          }
+          bgimg.style.opacity = '.5';
+        }, 500);
       }
+    }
   });
 });
