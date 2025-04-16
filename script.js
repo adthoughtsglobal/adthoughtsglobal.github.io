@@ -1,38 +1,12 @@
-var lastitm, animations = true;
-function animateText(element, text) {
-  if (lastitm == text || !animations) {
-    return
-  }
-  lastitm = text;
-  element.innerHTML = '';
 
-  const span = document.createElement('span');
-  span.textContent = text;
-  element.appendChild(span);
-}
-
-var madefor = [
-  "Developers",
-  "Fun",
-  "Ease of use",
-  "Efficiency",
-  "Making history",
-  "You",
-  "Creativity"
-];
-
-setInterval(function() {
-  animateText(document.getElementById("flashcards"), madefor[Math.floor(Math.random() * madefor.length)]);
-}, 1500);
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const hand = document.querySelector('#handsoftheguy');
 
-  document.querySelector('.flash svg').addEventListener('mouseenter', function() {
+  document.querySelector('.flash svg').addEventListener('mouseenter', function () {
     hand.setAttribute('d', 'M246.07758,147.84194c0,0 -4.11314,6.3764 -14.36498,6.668c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979');
   });
 
-  document.querySelector('.flash svg').addEventListener('mouseleave', function() {
+  document.querySelector('.flash svg').addEventListener('mouseleave', function () {
     hand.setAttribute('d', 'M241.41802,146.28875c0,0 0.54642,7.92959 -9.70542,8.22119c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979');
   });
 });
@@ -73,19 +47,6 @@ function removeAnimations(rev) {
 
 }
 
-function pauseplayanims() {
-  let x = document.getElementById('dod');
-  if (x.getAttribute("name") == `play-outline`) {
-    x.setAttribute("name", "pause-outline");
-    animations = true;
-    removeAnimations(1)
-  } else {
-    x.setAttribute("name", "play-outline");
-    animations = false;
-    document.getElementById("flashcards").innerText = "Everything"
-    removeAnimations(0)
-  }
-}
 
 const motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 if (motionMediaQuery.matches) {
@@ -104,4 +65,24 @@ function scrollCarouselRight() {
   if (carouselTrack) {
     carouselTrack.scrollBy({ left: carouselTrack.clientWidth, behavior: 'smooth' });
   }
+}
+
+
+function cycleTextShadow() {
+  const elements = document.querySelectorAll('.footer .socials i');
+  const delayBetween = 100;
+  const glowDuration = 300;
+
+  elements.forEach((el, i) => {
+      setTimeout(() => {
+          el.style.textShadow = '0 0 10px white';
+          el.style.opacity = '1';
+          el.style.transform = 'rotate(45deg) scale(1.1)';
+          setTimeout(() => {
+              el.style.textShadow = '';
+              el.style.transform = 'none';
+              el.style.opacity = '.5';
+          }, glowDuration);
+      }, i * delayBetween);
+  });
 }
