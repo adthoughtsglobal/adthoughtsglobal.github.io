@@ -1,15 +1,37 @@
+const path = document.querySelector('#handsoftheguy');
+const flash = document.querySelector('.flash>svg');
 
-document.addEventListener('DOMContentLoaded', function () {
-  const hand = document.querySelector('#handsoftheguy');
+const keyframes = [
+  "M246.07758,147.84194c0,0 -4.11314,6.3764 -14.36498,6.668c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979",
+  "M241.41802,146.28875c0,0 0.54642,7.92959 -9.70542,8.22119c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979",
+  "M246.07758,147.84194c0,0 -4.11314,6.3764 -14.36498,6.668c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979"
+];
 
-  document.querySelector('.flash svg').addEventListener('mouseenter', function () {
-    hand.setAttribute('d', 'M246.07758,147.84194c0,0 -4.11314,6.3764 -14.36498,6.668c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979');
-  });
+let frame = 0;
+let direction = 1;
+let animationFrameId;
 
-  document.querySelector('.flash svg').addEventListener('mouseleave', function () {
-    hand.setAttribute('d', 'M241.41802,146.28875c0,0 0.54642,7.92959 -9.70542,8.22119c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979');
-  });
+function animateHands() {
+  path.setAttribute('d', keyframes[frame]);
+
+  frame += direction;
+  if (frame === keyframes.length - 1 || frame === 0) {
+    direction *= -1;
+  }
+
+  animationFrameId = setTimeout(() => {
+    requestAnimationFrame(animateHands);
+  }, 333);
+}
+
+flash.addEventListener('mouseenter', () => {
+  animateHands();
 });
+
+flash.addEventListener('mouseleave', () => {
+  clearTimeout(animationFrameId);
+});
+
 
 let lastScrollTop = 0;
 const navbar = document.querySelector('.nav');
