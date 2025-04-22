@@ -335,18 +335,21 @@ nav a:hover {
 }
 
 .runbtn {
-	display: block;
-	margin: auto;
-	padding: 1rem 2rem;
-	font-size: 1.5rem;
-	background: #6a81ff;
-	margin-top: 1rem;
-	color: #ffffff;
-	border-radius: 50px;
-	transition: .3s;
-	border: none;
-	cursor: pointer;
-	font-family: inherit;
+    display: flex
+;
+    margin: auto;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background: #6a81ff;
+    margin-top: 1rem;
+    color: #ffffff;
+    border-radius: 50px;
+    transition: .3s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    align-items: center;
+    gap: .5em;
 }
 
 .runbtn:hover {
@@ -471,10 +474,15 @@ h2 {
 	padding: 2rem 0;
 }
 
-iframe.ytframe {
+.ytframe {
 	border-radius: 1rem;
 	overflow: hidden;
 	box-shadow: 0 5px 1rem black;
+    width: 100%;
+	margin: 1em;
+	max-width: 500px;
+	object-fit: cover;
+	aspect-ratio: 9/6;
 }
 
 .doit {

@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const scrollable1 = document.getElementsByClassName('scrollerbox')[0];
-const scrollable2 = document.getElementsByClassName('scrollerbox')[1];
 
 let isDown1 = false;
 let startX1, startY1, scrollLeft1, scrollTop1;
@@ -50,41 +49,6 @@ scrollable1.addEventListener('mousemove', (e) => {
   scrollable1.scrollLeft = scrollLeft1 - walkX1;
   scrollable1.scrollTop = scrollTop1 - walkY1;
 });
-
-let isDown2 = false;
-let startX2, startY2, scrollLeft2, scrollTop2;
-
-scrollable2.addEventListener('mousedown', (e) => {
-  isDown2 = true;
-  scrollable2.classList.add('active');
-  startX2 = e.pageX - scrollable2.offsetLeft;
-  startY2 = e.pageY - scrollable2.offsetTop;
-  scrollLeft2 = scrollable2.scrollLeft;
-  scrollTop2 = scrollable2.scrollTop;
-});
-
-scrollable2.addEventListener('mouseleave', () => {
-  isDown2 = false;
-  scrollable2.classList.remove('active');
-});
-
-scrollable2.addEventListener('mouseup', () => {
-  isDown2 = false;
-  scrollable2.classList.remove('active');
-});
-
-scrollable2.addEventListener('mousemove', (e) => {
-  if (!isDown2) return;
-  e.preventDefault();
-  const x = e.pageX - scrollable2.offsetLeft;
-  const y = e.pageY - scrollable2.offsetTop;
-  const walkX2 = (x - startX2) * 2;
-  const walkY2 = (y - startY2) * 2;
-  scrollable2.scrollLeft = scrollLeft2 - walkX2;
-  scrollable2.scrollTop = scrollTop2 - walkY2;
-});
-
-document.querySelector("#yearupdate").innerText = "©" + (new Date()).getFullYear();
 
 window.addEventListener('scroll', () => {
   const body44 = document.querySelectorAll(".bgimg")[0];
@@ -127,3 +91,11 @@ document.querySelectorAll('.ban').forEach(banElement => {
     }
   });
 });
+
+if (window.innerWidth < 500) {
+  const btn = document.getElementById('runbtntsk');
+  btn.textContent = 'Using it on mobiles';
+  btn.onclick = function() {
+    window.open('https://novaos.gitbook.io/main/get-started/access-novaos#installing-novaos-as-an-app-in-chrome');
+  };
+}
