@@ -107,7 +107,7 @@ document.querySelectorAll('.question_button').forEach(button => {
 
 		if (!answer.dataset.processed) {
 			const text = answer.textContent.trim();
-			const sentences = text.match(/[^.!?]+[.!?]+(\s|$)/g) || [text];
+			const sentences = text.match(/[^.!?,]+[.!?,]+(\s|$)/g) || [text];
 			answer.textContent = '';
 			sentences.forEach((sentence, index) => {
 				const sentenceSpan = document.createElement('span');
@@ -126,7 +126,7 @@ document.querySelectorAll('.question_button').forEach(button => {
 			children.forEach((child, index) => {
 				setTimeout(() => {
 					child.style.opacity = '1';
-				}, index * 200);
+				}, index * 500);
 			});
 		} else {
       answer.style.display = "none";
