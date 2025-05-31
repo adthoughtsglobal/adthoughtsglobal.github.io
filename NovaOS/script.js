@@ -105,34 +105,12 @@ document.querySelectorAll('.question_button').forEach(button => {
 		const answer = button.nextElementSibling;
 		const isActive = button.classList.toggle('active');
 
-		if (!answer.dataset.processed) {
-			const text = answer.textContent.trim();
-			const sentences = text.match(/[^.!?,]+[.!?,]+(\s|$)/g) || [text];
-			answer.textContent = '';
-			sentences.forEach((sentence, index) => {
-				const sentenceSpan = document.createElement('span');
-				sentenceSpan.textContent = sentence.trim() + " ";
-				sentenceSpan.style.opacity = '0';
-				sentenceSpan.style.transition = 'opacity 0.3s ease';
-				answer.appendChild(sentenceSpan);
-			});
-			answer.dataset.processed = 'true';
-		}
-
 
 		const children = Array.from(answer.children);
 		if (isActive) {
     answer.style.display = "block";
-			children.forEach((child, index) => {
-				setTimeout(() => {
-					child.style.opacity = '1';
-				}, index * 500);
-			});
 		} else {
       answer.style.display = "none";
-			children.forEach(child => {
-				child.style.opacity = '0';
-			});
 		}
 	});
 });
