@@ -558,3 +558,20 @@ h2 {
 .question_button.active .question_toggle {
 	transform: rotate(90deg);
 }
+
+button.gotobtn {
+    margin: auto;
+    display: flex
+;
+    padding: .6em 1em;
+    font-size: 1em;
+    border-radius: .7em;
+    background-color: #6a81ff;
+    border: 1px solid #aab7ff;
+    color: #ffffff;
+    box-shadow: 0 3px 1em black;
+	cursor: pointer;
+	&:hover {
+		background-color: #92a3ff;
+	}
+}
