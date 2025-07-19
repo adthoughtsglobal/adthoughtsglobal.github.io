@@ -27,18 +27,28 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #edf1f1;
-    color: #414535;
+    background-color: var(--light_bg);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     font-size: 16px;
+    transition: .5s;
     font-family: "IBM Plex Sans", sans-serif;
 }
 
 :root {
-    --dull-bg: #111113;
-    --main-bg: #18191b;
-    --high-bg: #33363b;
+  --text: #414535;
+  --light_bg: #edf1f1;
+  --high: #618985;
+  --light_text: #96bbbb;
+  --basic_bg: white;
+}
+.dark {
+  --text: #ddffff;
+    --light_bg: #1c2323;
+    --high: #79c9c2;
+    --basic_bg: #2c3835;
+    --light_text: #b6dddd;
 }
 
 #navigation {
@@ -46,12 +56,40 @@ body {
     justify-content: space-between;
     gap: 1em;
     padding: 1em;
-    background: white;
+    transition: .3s;
+    background: var(--basic_bg);
 
     &>.part {
         display: flex;
         gap: 1em;
         align-items: center;
+
+        &>a {
+            cursor: pointer;
+            padding-bottom: 3px;
+
+            &.current::after {
+                width: 90%;
+            opacity: 1;
+            }
+            &::after {
+                content: '';
+                width: 50%;
+                height: 2px;
+                background-color: var(--text);
+                display: block;
+            transition: .3s cubic-bezier(0, 0, 0.41, 1.14);
+            opacity: .3;
+            margin: auto;
+                
+                margin-top: 3px;
+            }
+
+            &:hover::after {
+                width: 100%;
+            opacity: 1;
+            }
+        }
     }
 }
 
@@ -73,10 +111,35 @@ body {
 }
 
 #main_content {
-    &>.section {      
-          padding: 1em 3em;
-        background: white;
+    max-width: 1000px;
+    margin: auto;
+
+    &>.section {
+        padding: 3em;
+        background: var(--basic_bg);
         max-width: 700px;
-        margin: auto;
+        margin: 3em;
+        border-radius: 1em;
+        margin-top: 1em;
+    transition: .3s;
+
+        & h1, p {
+            margin: 0;
+        }
+    }
 }
+
+.card_title {
+        display: flex
+;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.dmodetogbtn {
+    background-color: var(--dark-bg);
+    border: 0;
+    color: var(--text);
+    font-size: 20px;
 }
