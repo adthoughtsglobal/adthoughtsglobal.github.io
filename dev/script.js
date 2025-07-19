@@ -3,17 +3,18 @@ function toggleTheme(ele) {
     (theme) ? theme = 0: theme = 1;
     (!theme) ? ele.innerText = "light_mode" : ele.innerText = "dark_mode";
   document.documentElement.classList.toggle('dark');
-}
-const el = document.getElementById("lightboxanim");
+}const el = document.getElementById("lightboxanim");
 const words = ["scalable", "secure", "reliable", "reasonable", "expressive", "for you"];
 let index = 0;
+let elChars = [];
 
 function scrambleChar(finalChar, cb) {
     const chars = 'abcdefghijklmnopqrstuvwxyz';
     let count = 0;
     const max = Math.floor(Math.random() * 3) + 2;
     const interval = setInterval(() => {
-        elChars[this.i].textContent = chars[Math.floor(Math.random() * chars.length)];
+      if (elChars[this.i].textContent)  
+      elChars[this.i].textContent = chars[Math.floor(Math.random() * chars.length)];
         count++;
         if (Math.random() < 0.3 && count >= 2) elChars[this.i].textContent = finalChar;
         if (count >= max) {
