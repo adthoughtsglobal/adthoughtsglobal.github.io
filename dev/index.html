@@ -27,9 +27,9 @@
         </div>
         <div class="part sections_nav">
             <a class="current">Home</a>
-            <a>About</a>
-            <a>Projects</a>
-            <a>Contact</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
         <div class="part">
             <div class="socials">
@@ -40,11 +40,11 @@
                 <i class="fa-brands fa-patreon" onclick="window.open('https://patreon.com/adthoughtsglobal/')"></i>
                 <i class="fa-brands fa-blogger" onclick="window.open('https://thisisnovaos.blogspot.com/')"></i>
             </div>
-            <button class="msr dmodetogbtn" onclick="toggleTheme(this)">dark_mode</button>
+            <button class="msr dmodetogbtn" id="dmodetogbtn" onclick="toggleTheme(this)">dark_mode</button>
         </div>
     </div>
     <div id="main_content">
-        <div class="lightbox">
+        <div class="lightbox" id="main_lightbox">
             <div class="inner">
                 <h1>Making powerful systems <span id="lightboxanim">reliable</span>.</h1>
                 <p>Creating reliable and safe systems that scale optimally for your personal needs.</p>
@@ -54,7 +54,7 @@
                 <div class="msr">chevron_forward</div>
             </div>
         </div>
-        <div class="section">
+        <div class="section" id="about">
             <div class="card_title">
                 <div class="msr">ecg_heart</div>
                 <h1>About adthoughtsglobal</h1>
@@ -66,7 +66,7 @@
 That's what we do. adthoughtsglobal is about taking back control using what you already have. It's not about convenience but the true ownership of your tools, your time and your work. It's about building systems that respect you, so you can shape your future with what you have, and know the best.</p>
 
         </div>
-        <div class="section fluid">
+        <div class="section fluid" id="projects">
             <div class="card_title">
                 <div class="msr">work</div>
                 <h1>The Projects</h1>
@@ -95,7 +95,10 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>A fully featured stable offline music player app for NovaOS that supports external visualizers and music queues.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="more_proj_btn">
+                    <div class="msr">chevron_forward</div>
+                </div>
+                <!-- <div class="project">
                     <img src="assets/projapple.png" style="object-position: top;" class="thumb">
                     <div class="desc">
                         <h2>Open Web Desk</h2>
@@ -105,7 +108,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         </div>
                         <p>Web CLI environment for robust development, utmost privacy, safety and stability.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="section" id="contact">
@@ -114,18 +117,47 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                 <h1>Contact</h1>
             </div>
             <div class="socials">
-    <a href="https://www.youtube.com/@adthoughtsglobal" target="_blank"><i class="fa-brands fa-youtube"></i><div class="uname">@adthoughtsglobal</div></a>
-    <a href="https://discord.com/invite/atkqbwEQU8" target="_blank"><i class="fa-brands fa-discord"></i><div class="uname">Join Discord</div></a>
-    <a href="https://x.com/adthattweets" target="_blank"><i class="fa-brands fa-x-twitter"></i><div class="uname">@adthattweets</div></a>
-    <a href="https://github.com/adthoughtsglobal/" target="_blank"><i class="fa-brands fa-github"></i><div class="uname">adthoughtsglobal</div></a>
-    <a href="https://patreon.com/adthoughtsglobal/" target="_blank"><i class="fa-brands fa-patreon"></i><div class="uname">Support Us</div></a>
-    <a href="https://thisisnovaos.blogspot.com/" target="_blank"><i class="fa-brands fa-blogger"></i><div class="uname">Our Blog</div></a>
+    <a href="https://www.youtube.com/@adthoughtsglobal"target="_blank"><i class="fa-brands fa-youtube" style="color: #ff0033;"></i><div class="uname">@adthoughtsglobal</div></a>
+    <a href="https://discord.com/invite/atkqbwEQU8"  target="_blank"><i class="fa-brands fa-discord" style="color: #5662f6;"></i><div class="uname">Join Discord</div></a>
+    <a href="https://x.com/adthattweets" target="_blank"><i class="fa-brands fa-x-twitter" style="color: rgb(0,0, 0);"></i><div class="uname">@adthattweets</div></a>
+    <a href="https://github.com/adthoughtsglobal/" target="_blank"><i class="fa-brands fa-github"  style="color: rgb(174, 0, 255);" ></i><div class="uname">adthoughtsglobal</div></a>
+    <a href="https://www.buymeacoffee.com/novaweb" target="_blank"><i class="msr">coffee</i><div class="uname">Support Us</div></a>
+    <a href="https://thisisnovaos.blogspot.com/" target="_blank"><i class="fa-brands fa-blogger" style="color: #fe9c0e;"></i><div class="uname">Our Blog</div></a>
 </div>
             <p
-                style="border-top: var(--border);padding-top: 1em;margin-top: 1em;margin-bottom: 0;">Mail us at <a class="link">adthoughtsglobal@gmail.com</a></p>
+                style="border-top: var(--border);padding-top: 1em;margin-top: 1em;margin-bottom: 0;">Mail us at <a class="link" href="mailto:runnova@proton.me">runnova@proton.me</a></p>
 
         </div>
     </div>
+    <canvas id="c"</canvas>
+<script>
+let c=document.getElementById('c'),ctx=c.getContext('2d');
+let w=c.width=innerWidth/2,h=c.height=innerHeight/2;
+function f(x,y,t){
+  return (Math.sin(x*0.01+t*0.001)+Math.sin(y*0.01+t*0.001)+Math.sin((x+y)*0.007+t*0.001))*0.5+0.5;
+}
+let lastTime=0;
+function draw(t){
+  if(t-lastTime<33){requestAnimationFrame(draw); return;}
+  lastTime=t;
+  let img=ctx.createImageData(w,h);
+  for(let x=0;x<w;x++){
+    for(let y=0;y<h;y++){
+      let v=f(x,y,t);
+      let i=(y*w+x)*4;
+      img.data[i]=80;
+      img.data[i+1]=200;
+      img.data[i+2]=200;
+      img.data[i+3]=Math.floor(v*30);
+    }
+  }
+  ctx.putImageData(img,0,0);
+  ctx.drawImage(c,0,0, w, h, 0, 0, innerWidth, innerHeight);
+  requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+
+</script>
     <script src="script.js" async defer></script>
 </body>
 

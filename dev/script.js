@@ -1,9 +1,15 @@
 let theme = 1;
-function toggleTheme(ele) {
+function toggleTheme(ele = document.getElementById("dmodetogbtn")) {
     (theme) ? theme = 0: theme = 1;
     (!theme) ? ele.innerText = "light_mode" : ele.innerText = "dark_mode";
   document.documentElement.classList.toggle('dark');
-}const el = document.getElementById("lightboxanim");
+}
+
+if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+  toggleTheme();
+}
+
+const el = document.getElementById("lightboxanim");
 const words = ["scalable", "secure", "reliable", "reasonable", "expressive", "for you"];
 let index = 0;
 let elChars = [];
@@ -45,3 +51,10 @@ function updateWord() {
 }
 
 setInterval(updateWord, 3000);
+
+const nav=document.getElementById('navigation');
+const threshold=parseFloat(getComputedStyle(document.documentElement).fontSize);
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>threshold){nav.classList.add('fixed');}
+  else{nav.classList.remove('fixed');}
+});
