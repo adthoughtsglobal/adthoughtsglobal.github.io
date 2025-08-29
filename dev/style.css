@@ -25,7 +25,6 @@ html {
 }
 
 body {
-    height: 100%;
     width: 100%;
     margin: 0;
     background-color: var(--light_bg);
@@ -69,12 +68,12 @@ body {
     transition: .3s cubic-bezier(0.42, 1.67, 0.21, 0.90);
     background: var(--basic_bg);
     border: var(--border);
-        position: fixed;
-        width: calc(100% - 2em);
-        left: 0%;
-        right: 0%;
-        top: 0em;
-        z-index: 99;
+    position: fixed;
+    width: calc(100% - 2em);
+    left: 0%;
+    right: 0%;
+    top: 0em;
+    z-index: 99;
 
     &.fixed {
         top: .5em;
@@ -100,10 +99,15 @@ body {
             all: unset;
             cursor: pointer;
             padding-bottom: 3px;
+            opacity: .7;
 
-            &.current::after {
-                width: 90%;
+            &.current {
                 opacity: 1;
+
+                &::after {
+                    opacity: 1;
+                    width: 90%;
+                }
             }
 
             &::after {
@@ -116,7 +120,6 @@ body {
                 opacity: .3;
                 border-radius: 3px;
                 margin: auto;
-
                 margin-top: 3px;
             }
 
@@ -133,7 +136,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 3em;
-    margin-top: 3em;
 
     &>.go_to_button {
         display: flex;
@@ -165,26 +167,32 @@ body {
     }
 }
 
-#main_content {
-    max-width: 1000px;
-    margin: auto;
+@keyframes content_jump {
+    0% {
+        transform: translateY(10px);
+    }
+}
+
+.content_body {
+    animation: content_jump .3s;
+    max-width: 900px;
+    margin: 7em auto;
 
     &>.section {
         padding: 3em;
         background: var(--basic_bg);
-        max-width: 700px;
-        margin: 3em;
+        margin: 0;
         border-radius: 1em;
-        margin-top: 1em;
+        margin-top: 3em;
         transition: .3s;
         border: var(--border);
 
         &:target {
             scroll-margin-top: 8em;
-            animation: section_pop 5s cubic-bezier(0.42, 1.67, 0.21, 0.90);
+            animation: section_pop 5s ease-out;
 
             &.fluid {
-                animation: fluid_pop 5s cubic-bezier(0.42, 1.67, 0.21, 0.90);
+                animation: fluid_pop 5s ease-out;
             }
 
         }
@@ -212,6 +220,18 @@ body {
     gap: 1em;
     align-items: center;
     margin-bottom: 1em;
+
+    .copyLink {
+        transition: .8s cubic-bezier(0.42, 1.67, 0.21, 0.90);
+        opacity: 0;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+    }
+&:hover>.copyLink {
+    opacity: 1;
+}
+
 }
 
 .dmodetogbtn {
@@ -222,12 +242,13 @@ body {
 }
 
 .project {
-    width: 300px;
+    min-width: 300px;
     overflow: hidden;
     border-radius: .7em;
     background-color: var(--basic_bg);
     border: var(--border);
     transition: .2s ease-out;
+    height: 100%;
 
     &:hover {
         transform: translateY(-5px);
@@ -282,6 +303,11 @@ body {
     flex-wrap: nowrap;
     align-items: center;
     gap: .5em;
+
+    &.projgrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .more_proj_btn {
@@ -293,14 +319,32 @@ body {
     margin-left: 1em;
     cursor: pointer;
     border: var(--border);
-        transition: .2s;
+    position: relative;
+    transition: .2s;
+
+    &::after {
+        content: '+5';
+        display: flex;
+        position: absolute;
+        right: -5px;
+        top: -5px;
+        border-radius: 50%;
+        padding: 7px;
+        font-size: 14px;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        background-color: #e55454;
+        color: rgb(255, 255, 255);
+    }
 
     &>.msr {
         font-size: 2em;
     }
-        &:hover {
-            transform: scale(1.2);
-        }
+
+    &:hover {
+        transform: scale(1.2);
+    }
 }
 
 #contact .socials {
@@ -326,10 +370,10 @@ body {
 }
 
 canvas {
-  position: fixed;
-  top: 0;
-  z-index: -1;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
