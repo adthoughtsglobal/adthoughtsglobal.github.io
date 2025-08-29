@@ -61,11 +61,11 @@ window.addEventListener('scroll',()=>{
 
 function goToContent(pageName) {
   document.querySelectorAll(".content_body").forEach((element)=>{element.style.display = "none";});
-  document.getElementById(pageName).style.display = "block";
+  document.getElementById(pageName).style.display = "flex";
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-goToContent("main_content")
+goToContent("blog_page")
 
 document.querySelectorAll('.sections_nav a').forEach(link => {
   link.addEventListener('click', function(e) {
