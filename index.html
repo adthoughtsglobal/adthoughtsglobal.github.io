@@ -1,44 +1,301 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>adthoughtsglobal</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <script src="script.js" defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <meta name="google-site-verification" content="a4AtnBvgLhDCx0ajXAh-yGb9Zxv19IcQe169CfnUbys" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet">
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>adthoughtsglobal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
-   adthoughtsglobal
-      <div class="socials">
-  <i class="fa-brands fa-youtube" onclick="window.open('https://www.youtube.com/@adthoughtsglobal')"></i>
-  <i class="fa-brands fa-discord" onclick="window.open('https://discord.com/invite/atkqbwEQU8')"></i>
-  <i class="fa-brands fa-x-twitter" onclick="window.open('https://x.com/adthattweets')"></i>
-  <i class="fa-brands fa-github" onclick="window.open('https://github.com/adthoughtsglobal/')"></i>
-  <i class="fa-brands fa-patreon" onclick="window.open('https://patreon.com/adthoughtsglobal/')"></i>
-      <i class="fa-brands fa-blogger" onclick="window.open('https://thisisnovaos.blogspot.com/')"></i>
-</div>
-<h1><a href="https://adthoughtsglobal.github.io/NovaOS/index.html">NovaOS</a></h1>
-      <p>The powerful, stable, fully local and source-available web system, made for every modern browser and device.</p>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div id="navigation">
+        <div class="part">
+            <b class="logo">adthoughtsglobal</b>
+        </div>
+        <div class="part sections_nav">
+            <a class="current" onclick="goToContent('main_content')">Home</a>
+            <a onclick="goToContent('main_content')" href="#about">About</a>
+            <a onclick="goToContent('projects_page')">Projects</a>
+            <a onclick="goToContent('main_content')" href="#contact">Contact</a>
+            <a onclick="goToContent('blog_page')">Blog</a>
+        </div>
+        <div class="part">
+            <div class="socials">
+                <i class="fa-brands fa-youtube" onclick="window.open('https://www.youtube.com/@adthoughtsglobal')"></i>
+                <i class="fa-brands fa-discord" onclick="window.open('https://discord.com/invite/atkqbwEQU8')"></i>
+                <i class="fa-brands fa-x-twitter" onclick="window.open('https://x.com/adthattweets')"></i>
+                <i class="fa-brands fa-github" onclick="window.open('https://github.com/adthoughtsglobal/')"></i>
+                <i class="fa-brands fa-patreon" onclick="window.open('https://patreon.com/adthoughtsglobal/')"></i>
+                <i class="fa-brands fa-blogger" onclick="window.open('https://thisisnovaos.blogspot.com/')"></i>
+            </div>
+            <button class="msr dmodetogbtn" id="dmodetogbtn" onclick="toggleTheme(this)">dark_mode</button>
+        </div>
     </div>
-    <div class="buttons quickaction">
-      <a class="thecoolbtn" href="https://adthoughtsglobal.github.io/Nova-OS">Try it</a>
-      <a href="https://adthoughtsglobal.github.io/NovaOS/index.html">Learn More</a>
+    <div id="main_content" class="content_body">
+        <div class="lightbox" id="main_lightbox">
+            <div class="inner">
+                <h1>Making powerful systems <span id="lightboxanim">reliable</span>.</h1>
+                <p>Creating reliable and safe systems that scale optimally for your personal needs.</p>
+            </div>
+            <div class="go_to_button"  onclick="goToContent('blog_page')"`>
+                <b>Read</b>&bull;<a>The vision behind the system</a>
+                <div class="msr">chevron_forward</div>
+            </div>
+        </div>
+        <div class="section" id="about">
+            <div class="card_title">
+                <div class="msr">ecg_heart</div>
+                <h1>About adthoughtsglobal</h1>
+                <div class="copyLink">
+                    <div class="msr">link</div>
+                </div>
+            </div>
+            <p>We live in a world that makes you feel good about giving up your basic rights. You're told that endless scrolling is normal, that losing privacy is progress. Curiosity and potential have been reduced to products, what's sold is your time and freedom to choose.
+</p>
+            <p>And abstraction is the act of building on what exists. It simplifies the mess, not by hiding it, but by working through it. To make complex things on simpler spaces, virtually creating a space, that's under your control.</p>
+            <p>
+That's what we do. adthoughtsglobal is about taking back control using what you already have. It's not about convenience but the true ownership of your tools, your time and your work. It's about building systems that respect you, so you can shape your future with what you have, and know the best.</p>
+
+        </div>
+        <div class="section fluid" id="projects">
+            <div class="card_title">
+                <div class="msr">work</div>
+                <h1>The Projects</h1>
+                <div class="copyLink">
+                    <div class="msr">link</div>
+                </div>
+            </div>
+            <div class="projects">
+                <div class="project">
+                    <img src="assets/novass.png" class="thumb">
+                    <div class="desc">
+                        <h2>NovaOS</h2>
+                        <div class="links">
+                            <a href="" class="link">Homepage</a>
+                            <a href="" class="link">Github</a>
+                            <a href="" class="link">Discord</a>
+                        </div>
+                        <p>The powerful, stable, fully local and source-available web system, made for every modern browser and device.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="assets/musicplr.png" class="thumb">
+                    <div class="desc">
+                        <h2>MusicPLR</h2>
+                        <div class="links">
+                            <a href="" class="link">View in store</a>
+                            <a href="" class="link">Github</a>
+                        </div>
+                        <p>A fully featured stable offline music player app for NovaOS that supports external visualizers and music queues.</p>
+                    </div>
+                </div>
+                <div class="more_proj_btn" onclick="goToContent('projects_page')">
+                    <div class="msr">chevron_forward</div>
+                </div>
+                <!-- <div class="project">
+                    <img src="assets/projapple.png" style="object-position: top;" class="thumb">
+                    <div class="desc">
+                        <h2>Open Web Desk</h2>
+                        <div class="links">
+                            <a href="" class="link">Open</a>
+                            <a href="" class="link">Github</a>
+                        </div>
+                        <p>Web CLI environment for robust development, utmost privacy, safety and stability.</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="section" id="contact">
+            <div class="card_title">
+                <div class="msr">emoji_people</div>
+                <h1>Contact</h1>
+                <div class="copyLink">
+                    <div class="msr">link</div>
+                </div>
+            </div>
+            <div class="socials">
+                <a href="https://www.youtube.com/@adthoughtsglobal" target="_blank"><i class="fa-brands fa-youtube"
+                        style="color: #ff0033;"></i>
+                    <div class="uname">@adthoughtsglobal</div>
+                </a>
+                <a href="https://discord.com/invite/atkqbwEQU8" target="_blank"><i class="fa-brands fa-discord"
+                        style="color: #5662f6;"></i>
+                    <div class="uname">Join Discord</div>
+                </a>
+                <a href="https://x.com/adthattweets" target="_blank"><i class="fa-brands fa-x-twitter"
+                        style="color: rgb(0,0, 0);"></i>
+                    <div class="uname">@adthattweets</div>
+                </a>
+                <a href="https://github.com/adthoughtsglobal/" target="_blank"><i class="fa-brands fa-github"
+                        style="color: rgb(174, 0, 255);"></i>
+                    <div class="uname">adthoughtsglobal</div>
+                </a>
+                <a href="https://www.buymeacoffee.com/novaweb" target="_blank"><i class="msr">coffee</i>
+                    <div class="uname">Support Us</div>
+                </a>
+                <a href="https://thisisnovaos.blogspot.com/" target="_blank"><i class="fa-brands fa-blogger"
+                        style="color: #fe9c0e;"></i>
+                    <div class="uname">Our Blog</div>
+                </a>
+            </div>
+            <p
+                style="border-top: var(--border);padding-top: 1em;margin-top: 1em;margin-bottom: 0;">Mail us at <a class="link" href="mailto:runnova@proton.me">runnova@proton.me</a></p>
+
+        </div>
     </div>
-    <div class="sidenote"><b>Temporary site</b>
-    <p>This is a temporary placeholder web page. I'm studying the usage of this page for designing a better new homepage.</p>
     </div>
-    <img id="sticks" src="sticks.webp">
+    <div id="projects_page" class="content_body">
+        <div class="section fluid">
+            <div class="card_title">
+                <div class="msr">work</div>
+                <h1>All Projects</h1>
+            </div>
+            <div class="projects projgrid">
+                <div class="project" style="grid-column: 1 / -1;">
+                    <img src="assets/novass.png" class="thumb">
+                    <div class="desc">
+                        <h2>NovaOS</h2>
+                        <div class="links">
+                            <a href="" class="link">Homepage</a>
+                            <a href="" class="link">Github</a>
+                            <a href="" class="link">Discord</a>
+                        </div>
+                        <p>The powerful, stable, fully local and source-available web system, made for every modern browser and device.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="assets/musicplr.png" class="thumb">
+                    <div class="desc">
+                        <h2>MusicPLR</h2>
+                        <div class="links">
+                            <a href="" class="link">View code</a>
+                        </div>
+                        <p>A fully featured stable offline music player app for NovaOS that supports external visualizers and music queues.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="assets/owifive.png" class="thumb">
+                    <div class="desc">
+                        <h2>OWI Five</h2>
+                        <div class="links">
+                            <a href="https://github.com/adthoughtsglobal/Nova-Store/blob/main/apps/owifive.html"
+                                class="link">View code</a>
+                        </div>
+                        <p>Owifive is an image editor that helps you to analize images with precision.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="assets/liza.png" class="thumb">
+                    <div class="desc">
+                        <h2>Liza 4</h2>
+                        <div class="links">
+                            <a href="" class="link">On Dev</a>
+                            <a href="https://github.com/adthoughtsglobal/Nova-Store/blob/main/apps/lizabot3.html"
+                                class="link">LizaBot3 code</a>
+                        </div>
+                        <p>Liza 4 is an offline, client-side basic application that let's you do things through a text box.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="assets/astel.png" class="thumb">
+                    <div class="desc">
+                        <h2>AlphaShore Tel</h2>
+                        <div class="links">
+                            <a href="https://novaos-web.github.io/as/tel/" class="link">Play</a>
+                            <a href="https://github.com/novaos-web/as/tree/main/tel" class="link">View code</a>
+                        </div>
+                        <p>Tel is a game built on our AlphaShore local networking system. It's a two player game where you guess what the other drew.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="assets/claw.png" class="thumb">
+                    <div class="desc">
+                        <h2>NovaOS Claw</h2>
+                        <div class="links">
+                            <a href="https://adthoughtsglobal.github.io/Nova-Store/apps/claw.html" class="link">View
+                                code</a>
+                        </div>
+                        <p>Our Client for RoturTW's Claw. Read the feed or take part in the conversation.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="assets/credits.png" class="thumb">
+                    <div class="desc">
+                        <h2>Credits center</h2>
+                        <div class="links">
+                            <a href="https://adthoughtsglobal.github.io/Nova-Store/apps/claw.html" class="link">View
+                                code</a>
+                        </div>
+                        <p>An app for managing your RoturTW credits. Payments and Personalized dashboards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="blog_page" class="content_body">
+        <div class="blog_sidebar">
+            <span class="sidebar_title">POSTS</span>
+            <div class="single_blog_button">
+                The vision behind the system
+            </div>
+            <p></p>
+        </div>
+        <div class="post_content">
+            <div class="post_title">
+                <h1>The vision behind the system</h1>
+                <div class="title_more">
+                    <span class="date">30 Aug 2025</span>
+                    <span class="date">5 Minutes</span>
+                </div>
+            </div>
+            <div class="post_body">
+               <p> We live in a world that makes you feel good about giving up your basic rights. You're told that endless scrolling is normal, that losing privacy is progress. Curiosity and potential have been reduced to products, what's sold is your time and freedom to choose.</p>
+            </div>
+        </div>
+    </div>
+    <canvas id="c"> </canvas>
+    <script>
+        let c = document.getElementById('c'), ctx = c.getContext('2d');
+        let w = c.width = innerWidth / 2, h = c.height = innerHeight / 2;
+        function f(x, y, t) {
+            return (Math.sin(x * 0.01 + t * 0.001) + Math.sin(y * 0.01 + t * 0.001) + Math.sin((x + y) * 0.007 + t * 0.001)) * 0.5 + 0.5;
+        }
+        let lastTime = 0;
+        function draw(t) {
+            if (t - lastTime < 33) { requestAnimationFrame(draw); return; }
+            lastTime = t;
+            let img = ctx.createImageData(w, h);
+            for (let x = 0; x < w; x++) {
+                for (let y = 0; y < h; y++) {
+                    let v = f(x, y, t);
+                    let i = (y * w + x) * 4;
+                    img.data[i] = 80;
+                    img.data[i + 1] = 200;
+                    img.data[i + 2] = 200;
+                    img.data[i + 3] = Math.floor(v * 30);
+                }
+            }
+            ctx.putImageData(img, 0, 0);
+            ctx.drawImage(c, 0, 0, w, h, 0, 0, innerWidth, innerHeight);
+            requestAnimationFrame(draw);
+        }
+        requestAnimationFrame(draw);
+
+    </script>
+    <script src="script.js" async defer></script>
 </body>
 
 </html>

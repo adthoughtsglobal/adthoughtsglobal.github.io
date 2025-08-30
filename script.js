@@ -1,110 +1,85 @@
-const path = document.querySelector('#handsoftheguy');
-const flash = document.querySelector('.flash>svg');
-
-const keyframes = [
-  "M246.07758,147.84194c0,0 -4.11314,6.3764 -14.36498,6.668c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979",
-  "M241.41802,146.28875c0,0 0.54642,7.92959 -9.70542,8.22119c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979",
-  "M246.07758,147.84194c0,0 -4.11314,6.3764 -14.36498,6.668c-4.19501,0.11932 -8.87575,-2.69066 -11.83066,-2.51425c-5.42612,0.32395 -15.03978,0.8979 -15.03978,0.8979"
-];
-
-let frame = 0;
-let direction = 1;
-let animationFrameId;
-
-function animateHands() {
-  path.setAttribute('d', keyframes[frame]);
-
-  frame += direction;
-  if (frame === keyframes.length - 1 || frame === 0) {
-    direction *= -1;
-  }
-
-  animationFrameId = setTimeout(() => {
-    requestAnimationFrame(animateHands);
-  }, 333);
+let theme = 1;
+function toggleTheme(ele = document.getElementById("dmodetogbtn")) {
+    (theme) ? theme = 0: theme = 1;
+    (!theme) ? ele.innerText = "light_mode" : ele.innerText = "dark_mode";
+  document.documentElement.classList.toggle('dark');
 }
 
-flash.addEventListener('mouseenter', () => {
-  animateHands();
+if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+  toggleTheme();
+}
+
+const el = document.getElementById("lightboxanim");
+const words = ["scalable", "secure", "reliable", "reasonable", "expressive", "for you"];
+let index = 0;
+let elChars = [];
+
+function scrambleChar(finalChar, cb) {
+    const chars = 'abcdefghijklmnopqrstuvwxyz';
+    let count = 0;
+    const max = Math.floor(Math.random() * 3) + 2;
+    const interval = setInterval(() => {
+      if (elChars[this.i].textContent)  
+      elChars[this.i].textContent = chars[Math.floor(Math.random() * chars.length)];
+        count++;
+        if (Math.random() < 0.3 && count >= 2) elChars[this.i].textContent = finalChar;
+        if (count >= max) {
+            clearInterval(interval);
+            elChars[this.i].textContent = finalChar;
+            cb();
+        }
+    }, 80 + Math.random() * 60);
+}
+
+function updateWord() {
+    index = (index + 1) % words.length;
+    const next = words[index];
+    const len = next.length;
+    const current = el.textContent;
+    el.innerHTML = '';
+    const padded = current.padEnd(len).slice(0, len);
+    elChars = Array.from(padded).map((c, i) => {
+        const span = document.createElement('span');
+        span.textContent = c;
+        el.appendChild(span);
+        return span;
+    });
+
+    elChars.forEach((span, i) => {
+        setTimeout(() => scrambleChar.call({i}, next[i] || ' ', () => {}), 20 + Math.random() * 300);
+    });
+}
+
+setInterval(updateWord, 3000);
+
+const nav=document.getElementById('navigation');
+const threshold=parseFloat(getComputedStyle(document.documentElement).fontSize);
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>threshold){nav.classList.add('fixed');}
+  else{nav.classList.remove('fixed');}
 });
 
-flash.addEventListener('mouseleave', () => {
-  clearTimeout(animationFrameId);
-});
-
-
-let lastScrollTop = 0;
-const navbar = document.querySelector('.nav');
-navbar.style.background = 'transparent';
-navbar.style.color = 'black';
-
-window.addEventListener('scroll', () => {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (scrollTop === 0) {
-    navbar.style.background = 'transparent';
-    navbar.style.color = 'black';
-  } else {
-    navbar.style.background = '';
-    navbar.style.color = 'white';
-    if (scrollTop > lastScrollTop) {
-      navbar.style.top = '-60px'; // Adjust based on navbar height
-    } else {
-      navbar.style.top = '0';
-    }
-  }
-
-  lastScrollTop = scrollTop;
-});
-
-function removeAnimations(rev) {
-  let element = document.getElementById('device')
-  if (rev) {
-    element.style.animation = '';
-    element.style.webkitAnimation = '';
-  } else {
-    element.style.animation = 'none';
-    element.style.webkitAnimation = 'none';
-  }
-
+function goToContent(pageName) {
+  document.querySelectorAll(".content_body").forEach((element)=>{element.style.display = "none";});
+  document.getElementById(pageName).style.display = "flex";
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+goToContent("main_content")
 
-const motionMediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-if (motionMediaQuery.matches) {
-  pauseplayanims();
-}
-
-const carouselTrack = document.getElementById("carouselTrack");
-
-function scrollCarouselLeft() {
-  if (carouselTrack) {
-    carouselTrack.scrollBy({ left: -carouselTrack.clientWidth, behavior: 'smooth' });
-  }
-}
-
-function scrollCarouselRight() {
-  if (carouselTrack) {
-    carouselTrack.scrollBy({ left: carouselTrack.clientWidth, behavior: 'smooth' });
-  }
-}
-
-
-function cycleTextShadow() {
-  const elements = document.querySelectorAll('.footer .socials i');
-  const delayBetween = 100;
-  const glowDuration = 300;
-
-  elements.forEach((el, i) => {
-      setTimeout(() => {
-          el.style.textShadow = '0 0 10px white';
-          el.style.opacity = '1';
-          el.style.transform = 'rotate(45deg) scale(1.1)';
-          setTimeout(() => {
-              el.style.textShadow = '';
-              el.style.transform = 'none';
-              el.style.opacity = '.5';
-          }, glowDuration);
-      }, i * delayBetween);
+document.querySelectorAll('.sections_nav a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    document.querySelectorAll('.sections_nav a').forEach(l => l.classList.remove('current'));
+    this.classList.add('current');
   });
+});
+
+if (window.location.hash) {
+  history.replaceState(null, null, window.location.href.split('#')[0]);
 }
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.href.split('#')[0]);
+  }
+});
