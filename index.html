@@ -15,13 +15,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 
 <body>
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <div id="navigation">
+    <div id="my-scrollbar"><div id="navigation">
         <div class="part">
             <b class="logo">adthoughtsglobal</b>
         </div>
@@ -50,12 +52,12 @@
                 <h1>Making powerful systems <span id="lightboxanim">reliable</span>.</h1>
                 <p>Creating reliable and safe systems that scale optimally for your personal needs.</p>
             </div>
-            <div class="go_to_button" onclick="goToContent('blog_page')"`>
+            <div class="go_to_button" onclick="goToContent('blog_page')" `>
                 <b>Read</b>&bull;<a>The vision behind the system</a>
                 <div class="msr">chevron_forward</div>
             </div>
         </div>
-        <div class="section" id="about">
+        <div class="section" id="about" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
             <div class="card_title">
                 <div class="msr">ecg_heart</div>
                 <h1>About adthoughtsglobal</h1>
@@ -70,7 +72,7 @@
 That's what we do. adthoughtsglobal is about taking back control using what you already have. It's not about convenience but the true ownership of your tools, your time and your work. It's about building systems that respect you, so you can shape your future with what you have, and know the best.</p>
 
         </div>
-        <div class="section fluid" id="projects">
+        <div class="section fluid" id="projects" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
             <div class="card_title">
                 <div class="msr">work</div>
                 <h1>The Projects</h1>
@@ -79,7 +81,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                 </div>
             </div>
             <div class="projects">
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/novass.png" class="thumb">
                     <div class="desc">
                         <h2>NovaOS</h2>
@@ -91,7 +93,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>The powerful, stable, fully local and source-available web system, made for every modern browser and device.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/musicplr.png" class="thumb">
                     <div class="desc">
                         <h2>MusicPLR</h2>
@@ -102,10 +104,11 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>A fully featured stable offline music player app for NovaOS that supports external visualizers and music queues.</p>
                     </div>
                 </div>
-                <div class="more_proj_btn" onclick="goToContent('projects_page')">
+                <div class="more_proj_btn" onclick="goToContent('projects_page')" data-aos="fade-right"
+                    data-aos-offset="100" data-aos-easing="ease-in-sine">
                     <div class="msr">chevron_forward</div>
                 </div>
-                <!-- <div class="project">
+                <!-- <div class="project" data-aos="flip-up">
                     <img src="assets/projapple.png" style="object-position: top;" class="thumb">
                     <div class="desc">
                         <h2>Open Web Desk</h2>
@@ -118,7 +121,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                 </div> -->
             </div>
         </div>
-        <div class="section" id="contact">
+        <div class="section" id="contact" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
             <div class="card_title">
                 <div class="msr">emoji_people</div>
                 <h1>Contact</h1>
@@ -167,7 +170,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                 </div>
             </div>
             <div class="projects projgrid">
-                <div class="project" style="grid-column: 1 / -1;">
+                <div class="project" data-aos="flip-up" style="grid-column: 1 / -1;">
                     <img src="assets/novass.png" class="thumb">
                     <div class="desc">
                         <h2>NovaOS</h2>
@@ -179,7 +182,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>The powerful, stable, fully local and source-available web system, made for every modern browser and device.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/musicplr.png" class="thumb">
                     <div class="desc">
                         <h2>MusicPLR</h2>
@@ -189,7 +192,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>A fully featured stable offline music player app for NovaOS that supports external visualizers and music queues.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/owifive.png" class="thumb">
                     <div class="desc">
                         <h2>OWI Five</h2>
@@ -200,7 +203,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>Owifive is an image editor that helps you to analize images with precision.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/liza.png" class="thumb">
                     <div class="desc">
                         <h2>Liza 4</h2>
@@ -212,7 +215,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>Liza 4 is an offline, client-side basic application that let's you do things through a text box.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/astel.png" class="thumb">
                     <div class="desc">
                         <h2>AlphaShore Tel</h2>
@@ -223,7 +226,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>Tel is a game built on our AlphaShore local networking system. It's a two player game where you guess what the other drew.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/claw.png" class="thumb">
                     <div class="desc">
                         <h2>NovaOS Claw</h2>
@@ -234,7 +237,7 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                         <p>Our Client for RoturTW's Claw. Read the feed or take part in the conversation.</p>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" data-aos="flip-up">
                     <img src="assets/credits.png" class="thumb">
                     <div class="desc">
                         <h2>Credits center</h2>
@@ -265,20 +268,20 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
                 </div>
             </div>
             <div class="post_body">
-               <p> We live in a world that makes you feel good about giving up your basic rights. You're told that endless scrolling is normal, that losing privacy is progress. Curiosity and potential have been reduced to products, what's sold is your time and freedom to choose.</p>
+                <p> We live in a world that makes you feel good about giving up your basic rights. You're told that endless scrolling is normal, that losing privacy is progress. Curiosity and potential have been reduced to products, what's sold is your time and freedom to choose.</p>
             </div>
         </div>
     </div>
-    <canvas id="c"> </canvas>
+    <canvas id="c"> </canvas></div>
     <script>
         let c = document.getElementById('c'), ctx = c.getContext('2d');
         let w = c.width = innerWidth / 2, h = c.height = innerHeight / 2;
         function f(x, y, t) {
-            return (Math.sin(x * 0.01 + t * 0.001) + Math.sin(y * 0.01 + t * 0.001) + Math.sin((x + y) * 0.007 + t * 0.001)) * 0.5 + 0.5;
+            return (Math.sin(x * 0.01 + t * 0.001) + Math.sin(y * 0.01 + t * 0.001) + Math.sin((x + y) * 0.007 + t * 0.001)) * 0.2 + 0.2;
         }
         let lastTime = 0;
         function draw(t) {
-            if (t - lastTime < 33) { requestAnimationFrame(draw); return; }
+            if (t - lastTime < 63) { requestAnimationFrame(draw); return; }
             lastTime = t;
             let img = ctx.createImageData(w, h);
             for (let x = 0; x < w; x++) {
@@ -299,6 +302,8 @@ That's what we do. adthoughtsglobal is about taking back control using what you 
 
     </script>
     <script src="script.js" defer></script>
+
+    
 </body>
 
 </html>

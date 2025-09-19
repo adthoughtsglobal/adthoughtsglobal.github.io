@@ -64,6 +64,7 @@ function goToContent(pageName) {
   document.querySelectorAll(".content_body").forEach((element) => { element.style.display = "none"; });
   document.getElementById(pageName).style.display = "flex";
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  AOS.init();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -103,3 +104,6 @@ function copyLink(param) {
 function readPost(title) {
 
 }
+
+
+  AOS.init();
