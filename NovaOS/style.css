@@ -56,7 +56,6 @@ a {
 
 .footer {
 	background-color: #1f1f1fdb;
-	backdrop-filter: blur(10px);
 	color: white;
 	padding: 1rem;
 	padding-bottom: 1rem;
@@ -245,7 +244,7 @@ nav a:hover {
 
 .reliable {
 	margin: 3rem auto;
-    max-width: fit-content;
+	max-width: fit-content;
 
 	&.horiz {
 		display: flex;
@@ -278,7 +277,8 @@ nav a:hover {
 }
 
 .scrollerbox {
-	overflow-x: auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
 	padding: 10px;
 	touch-action: pan-x;
 	-webkit-overflow-scrolling: touch;
@@ -293,7 +293,7 @@ nav a:hover {
 }
 
 .whyres {
-	width: 250px;
+	width: 300px;
 	background: #0e0e0e;
 	border-radius: 10px;
 	white-space: break-spaces;
@@ -371,6 +371,13 @@ nav a:hover {
 
 	.featureside {
 		width: 100%;
+	}
+
+}
+
+@media only screen and (max-width: 600px) {
+	.horiz {
+		flex-direction: column !important;
 	}
 }
 
@@ -527,7 +534,6 @@ h2 {
 		height: 200px;
 
 		&>.questions_answer {
-			background-color: #202020;
 			display: block;
 			z-index: 99;
 		}
@@ -608,8 +614,63 @@ button.gotobtn {
 	}
 }
 
+.madeforu {
+	color: #4e8bff;
+}
+
 body.light {
+	background-color: white;
+	color: black;
+
 	.bgimg {
-		background-image: url("https://images.unsplash.com/photo-1738962135713-483517899f32?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+		background-image: url("https://images.unsplash.com/photo-1675935577183-f5898603c4c9?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+	}
+
+
+	.madeforu {
+		color: #1d3e7c;
+		text-shadow: 0 0 10px rgba(255, 255, 255, 0.349);
+	}
+
+	.dark {
+		background-color: #ededed;
+	}
+
+	.ban {
+		color: white;
+	}
+
+	.whyres {
+		background: #ffffff;
+		box-shadow: 0 5px 10px #0000003d;
+	}
+
+	.chevrons button {
+		background: white;
+		color: black;
+	}
+
+	.faq {
+		background: #ffffff;
+		border: 1px solid #41414159;
+	}
+
+	.questions_answer::after {
+		background-image: linear-gradient(0deg, #ffffff, transparent);
+	}
+
+	.question_toggle {
+		background-color: #dedede;
+	}
+
+	nav {
+		background: #ffffff96;
+		box-shadow: 0 0 10px #00000075;
+		color: black;
+	}
+
+	.footer {
+		background-color: #ffffff;
+		color: #000000;
 	}
 }

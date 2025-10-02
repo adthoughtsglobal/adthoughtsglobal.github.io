@@ -39,6 +39,9 @@
 				<a href="https://novaos.gitbook.io/main">Docs</a>
 				<a href="https://discord.gg/atkqbwEQU8">Discord</a>
 				<a href="https://adthoughtsglobal.github.io/Nova-OS/" id="altlaunchbtn">Launch</a>
+				<a onclick="document.body.classList.toggle('light')"><span class="material-symbols-rounded">
+					light
+				</span></a>
 			</div>
 		</div>
 
@@ -46,7 +49,7 @@
 	<div class="feature">
 		<div class="featureside featureleftside">
 			<span id="ver">Meet Nova OS</span>
-			<h1><span>An OS</span> </span>That's</span> <br><a style="color: #4e8bff;">Made For You.</a></h1>
+			<h1><span>An OS</span> </span>That's</span> <br><a class="madeforu">Made For You.</a></h1>
 			<button class="runbtn" onclick="window.open('https://adthoughtsglobal.github.io/Nova-OS/')"><span
 					id="runbtntsk">Launch Nova
 					OS </span><span class="material-symbols-rounded symbol">
@@ -74,44 +77,28 @@
 			<div class="reliable">
 				<div class="scrollerboxnav">
 					<h1>Why Nova OS?</h1>
-					<div class="chevrons">
-						<button
-							onclick="scrollable1.scrollTo({left: scrollable1.scrollLeft - 300, behavior: 'smooth'})">
-							<span class="material-symbols-rounded">
-								chevron_left
-							</span>
-						</button>
-						<button
-							onclick="scrollable1.scrollTo({left: scrollable1.scrollLeft + 300, behavior: 'smooth'})">
-							<span class="material-symbols-rounded">
-								chevron_right
-							</span>
-						</button>
-					</div>
 				</div>
 				<div class="scrollerbox">
-					<div class="whyboxes">
+					<div class="whyboxes inner">
 						<div class="whyres">
 							<span class="material-symbols-rounded">
-								tune
+								wand_stars
 							</span>
-							<b>Customizable</b>
-							<p>With its powerful features like setting a wallpaper from an image that you took with
-								it - Nova makes sure your OS feel like you, just as beautiful.</p>
+							<b>Auto Setup</b>
+							<p>NovaOS starts off with suggested settings and dynamically decides the best setting for you based on device and your usage.</p>
 						</div>
 						<div class="whyres">
 							<span class="material-symbols-rounded">
-								bolt
+								lock
 							</span>
-							<b>Powerful</b>
-							<p>From gaming to regular work, Nova has features to cover all your needs, Fast, secure
-								and easy with its stunning ui.</p>
+							<b>Privacy & Safety</b>
+							<p>NovaOS uses a very fast, offline encryption system to secure your files at the very second you update it. What your device does stays in your device.</p>
 						</div>
 						<div class="whyres">
 							<span class="material-symbols-rounded">
-								timer
+								speed
 							</span>
-							<b>Fast</b>
+							<b>Runs on potatos</b>
 							<p>NovaOS is built to run powerful tasks with the most minimal performance impact. With huge
 								amounts of features dedicated to optimizations.</p>
 						</div>
@@ -122,6 +109,20 @@
 							<b>Feature rich</b>
 							<p>You can do anything in Nova one way or the other, but Nova makes
 								it easier and better every update!</p>
+						</div>
+						<div class="whyres">
+							<span class="material-symbols-rounded">
+								wifi
+							</span>
+							<b>Optional online links</b>
+							<p>You can choose to install online auth providers like Rotur to use their services</p>
+						</div>
+						<div class="whyres">
+							<span class="material-symbols-rounded">
+								mobile
+							</span>
+							<b>Narrow Screens love it</b>
+							<p>NovaOS automatically detects Narrow screens and makes adjustments to the UI that's best for your screen.</p>
 						</div>
 					</div>
 				</div>
@@ -266,6 +267,8 @@
 			</div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
 	</mains>
 </body>
 

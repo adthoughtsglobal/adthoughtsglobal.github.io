@@ -93,3 +93,19 @@ document.querySelectorAll('.question_button').forEach(button => {
 	});
 });
 
+gsap.registerPlugin(ScrollTrigger);
+
+let box = document.querySelector('.scrollerbox');
+let inner = box.querySelector('.inner');
+gsap.to(inner, {
+  x: () => -(inner.scrollWidth - box.clientWidth),
+  ease: "power1.inOut",
+  scrollTrigger: {
+    trigger: box,
+    start: "center center",
+    end: () => "+=" + (inner.scrollWidth - box.clientWidth),
+    pin: true,
+    pinSpacing: true,
+    scrub: 1
+  }
+});
