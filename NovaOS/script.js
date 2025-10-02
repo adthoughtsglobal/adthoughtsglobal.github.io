@@ -70,28 +70,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-document.querySelectorAll('.ban').forEach(banElement => {
-  banElement.addEventListener('mouseover', function () {
-    const bgImage = window.getComputedStyle(this).backgroundImage;
-    const urlMatch = bgImage.match(/url\(["']?(.+?)["']?\)/);
-
-    if (urlMatch && urlMatch[1]) {
-      const newImageUrl = urlMatch[1];
-      const bgimg = document.querySelector('.bgimg');
-
-      if (bgimg.src !== newImageUrl && newImageUrl != "https://images.unsplash.com/photo-1730632694635-562d4356fd8d?q=80&w=1867&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") {
-        bgimg.style.opacity = '0';
-
-        setTimeout(() => {
-          bgimg.src = newImageUrl;
-
-          bgimg.style.opacity = '.5';
-        }, 500);
-      }
-    }
-  });
-});
-
 if (window.innerWidth < 500) {
   const btn = document.getElementById('runbtntsk');
   btn.textContent = 'Using it on mobiles';
