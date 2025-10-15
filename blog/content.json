@@ -1,5 +1,11 @@
+[
 {
-    "time":1756551606448,
-    "title":"The vision behind the system",
-    "content":"Illo illum autem quos fugit ullam. Fugiat repellendus dicta et sequi ipsam sunt cum qui. Et omnis asperiores ipsum voluptatem enim sit. Beatae dolorem nulla totam. Ut voluptates aut debitis nemo magni. Dicta est nulla qui nisi fugit sunt. Nobis reiciendis autem ea dolore. Saepe quas occaecati necessitatibus excepturi dicta nisi cumque voluptatem. Molestiae aut molestiae dicta. A voluptates tempora repellendus. Sint accusamus quam nulla. Voluptates eaque dignissimos perferendis et. Esse est sed sit laudantium placeat et. Quisquam distinctio sunt sit iure omnis voluptatibus. Vel facere ut eaque omnis repudiandae ut itaque optio. Consequuntur ipsam et ex qui. Et aliquid exercitationem placeat. Blanditiis numquam nesciunt blanditiis placeat est aperiam voluptatibus."
+"time":1760538541547,
+"title":"NovaOS 2.1 update log",
+"content":"- ↑ Better UI, themes, layouts and cohesive app styles with Nova.CSS.\n- 🔒 Permissions and fine tuned app controls via the new NTX system. Marking project avocado complete.\n- ✈ myWindow to control your window, AppsStorage to store data and headless OnStartup apps.\n- 🧹 Optimizations and cleaning up for thousands of things, including all file displays, previews and more.\n- 📶 Automatic app updates for Store-installed applications and automatic default app updates.\n- 👤 Icon packs, user icons, centralized symbol library and app icons in store app\n- 🪟 Window manager upgrades, better right-click, dock folders, keep visible and active window outline settings.\n- 📁 Choose file, save as and select destination files app prompts. Music files now open in MusicPLR and media in Gallery.\n- ⌛ NovaOS backups, better camera app (filters, previews and more), gallery shows videos (and very fast). Store app now has a search.\n- 🧱 Files app is now insanely stable and good at handling big files, big trees, subfolders and unknown files (u can search for handlers now) + multi file select.\n- ⚛ RoturTW in NovaOS can now be setup with Rotur Auth application, for easy account switching and browsing. Store now has a section for official NovaOS rotur applications.\n- ☑ window loader and auto app updates can now be turned off. Wallpaper position and sizing can also be customized.\n- 🐞 And bug fixes, way more features and some overall changes.\n\nNovaOS 2.1 Lazarus is a huge update for NovaOS. The version will be automatically upgraded. ♥ "
+},{
+"time":1760540164695,
+"title":"NovaOS is now open source.",
+"content":"NovaOS Web changed its license to GNU General Public License v3 (GPLv3) by Oct 8 2025.\r\nNovaOS system and NovaOS default apps will be under GPLv3.\r\nNova Store content will follow respected licenses.\r\nNova.CSS themes, libraries, contained media will retain their respective licenses.\r\n\r\nNovaOS would not accept pull requests."
 }
+]

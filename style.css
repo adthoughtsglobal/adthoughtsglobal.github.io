@@ -402,21 +402,26 @@ canvas {
 .content_body#blog_page {
     display: flex;
     flex-direction: row;
-    height: calc(100vh - 4em);
+    height: calc(100vh - 70px);
     align-items: flex-start;
     justify-content: flex-start;
     margin: 0;
-    margin-top: 4em;
+    margin-top: 62px;
     max-width: none;
     width: 100%;
     animation: none;
 
     &>.blog_sidebar {
-        height: calc(100% - 2em);
+        height: calc(100% - 26px);
         background: var(--basic_bg);
         padding: 1em;
         animation: blogSidebar .2s ease-out;
         width: 250px;
+        display: flex
+;
+border: var(--border);
+        flex-direction: column;
+        gap: 5px;
 
         &>.sidebar_title {
             opacity: .5;
@@ -435,6 +440,10 @@ canvas {
 
     &>.post_content {
         padding: 3em;
+        flex: 1;
+        overflow: hidden;
+        height: calc(100% - 6em);
+        overflow-y: auto;
     }
 }
 

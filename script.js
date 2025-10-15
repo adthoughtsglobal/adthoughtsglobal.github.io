@@ -68,12 +68,12 @@ function goToContent(pageName) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-document.querySelectorAll('.sections_nav a').forEach(link => {
-  link.addEventListener('click', function (e) {
-    document.querySelectorAll('.sections_nav a').forEach(l => l.classList.remove('current'));
-    this.classList.add('current');
+  document.querySelectorAll('.sections_nav a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      document.querySelectorAll('.sections_nav a').forEach(l => l.classList.remove('current'));
+      this.classList.add('current');
+    });
   });
-});
 
 
   const params = new URLSearchParams(window.location.search)
@@ -101,9 +101,40 @@ function copyLink(param) {
   navigator.clipboard.writeText(url)
 }
 
-function readPost(title) {
+document.addEventListener('DOMContentLoaded', async () => {
+  const res = await fetch('blog/content.json')
+  const posts = await res.json()
+  const sidebar = document.querySelector('.blog_sidebar')
+  sidebar.innerHTML = '<span class="sidebar_title">POSTS</span>' + posts.map(p => `<div class="single_blog_button" onclick="readPost('${p.title}')">${p.title}</div>`).join('')
+  const newest = posts.sort((a, b) => b.time - a.time)[0]
+  document.querySelector('#blogSnippet').innerText = newest.title;
+  readPost(newest.title);
+})
 
+async function readPost(title) {
+  const res = await fetch('blog/content.json')
+  const posts = await res.json()
+  const post = posts.find(p => p.title === title)
+  if (!post) return
+  document.querySelector('.post_title h1').textContent = post.title
+  const date = new Date(post.time)
+  document.querySelector('.title_more .date').textContent = date.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })
+  const words = post.content.split(/\s+/).length
+  const minutes = Math.max(1, Math.ceil(words / 200))
+  document.querySelector('.estReadTime').textContent = `${minutes} Minute${minutes > 1 ? 's' : ''}`
+  const html = post.content
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/\*\*(.*?)\*\*/gim, '<b>$1</b>')
+    .replace(/\*(.*?)\*/gim, '<i>$1</i>')
+    .replace(/__(.*?)__/gim, '<u>$1</u>')
+    .replace(/`(.*?)`/gim, '<code>$1</code>')
+    .replace(/~(.*?)~/gim, '<del>$1</del>')
+    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
+    .replace(/\n/g, '<br>')
+    .replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;')
+  document.querySelector('.post_body').innerHTML = `<p>${html}</p>`
 }
 
-
-  AOS.init();
+AOS.init();
